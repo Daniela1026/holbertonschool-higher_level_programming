@@ -1,11 +1,9 @@
 #!/usr/bin/python3
-""" 
-Module print square
-"""
+""" Module print square """
+
 
 def print_square(size):
-    """ function that prints a square with the character #"""
-
+    """ print a column and row of '#' """
     if type(size) is not int or type(size) is float:
         raise TypeError("size must be an integer")
     elif size < 0:
