@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ module area and perimeter"""
 
+
 class Rectangle:
     """
     class Rectangle
