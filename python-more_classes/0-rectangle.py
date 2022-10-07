@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """
-Simple rectangle class
+Module Simple rectangle class
 """
 
 
 class Rectangle:
+    """ Rectangle that defines a rectangle """
     pass
