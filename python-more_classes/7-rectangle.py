@@ -1,5 +1,10 @@
 #!/usr/bin/python3
+""" Module change representation"""
+
+
 class Rectangle:
+    """class Rectangle width and height"""
+
     number_of_instances = 0
     print_symbol = '#'
 
