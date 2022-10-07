@@ -1,8 +1,4 @@
 #!/usr/bin/python3
-"""
-Module Area and Perimeter
-"""
-
 class Rectangle:
     def __init__(self, width=0, height=0):
         self.__width = width
