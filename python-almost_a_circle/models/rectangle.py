@@ -92,3 +92,30 @@ class Rectangle(Base):
         """the __str__ method so that it returns"""
         return ("[Rectangle] ({}) {}/{} - {}/{}".format(
             self.id, self.__x, self.__y, self.__width, self.__height))
+
+    def update(self, *args, **keyargs):
+        """ Update rectangle by adding the public method"""
+
+        if args:
+            for i in range(len(args)):
+                if i == 0:
+                    self.id = args[0]
+                if i == 1:
+                    self.__width = args[1]
+                if i == 2:
+                    self.__height = args[2]
+                if i == 3:
+                    self.__x = args[3]
+                if i == 4:
+                    self.__y = args[4]
+        else:
+            if 'id' in keyargs:
+                self.id = keyargs['id']
+            if 'width' in keyargs:
+                self.__width = keyargs['width']
+            if 'height' in keyargs:
+                self.__height = keyargs['height']
+            if 'x' in keyargs:
+                self.__x = keyargs['x']
+            if 'y' in keyargs:
+                self.__y = keyargs['y']
