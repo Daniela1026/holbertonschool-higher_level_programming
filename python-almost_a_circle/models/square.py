@@ -25,3 +25,13 @@ class Square(Rectangle):
         """Returns the size of the object"""
         self.width = value
         self.height = value
+
+    def update(self, *args, **keyargs):
+        """Update the class square by adding the public method"""
+        lis = ['id', 'size', 'x', 'y']
+        if args:
+            for i in range(len(args)):
+                setattr(self, lis[i], args[i])
+        else:
+            for key, value in keyargs.items():
+                setattr(self, key, value)
