@@ -37,9 +37,37 @@ class Base:
             else:
                 i.write(cls.to_json_string(jsson))
 
-     @staticmethod
+    @staticmethod
     def from_json_string(json_string):
         """Return the deserialization of a JSON string"""
         if json_string is None or json_string == "[]":
             return []
         return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+       """that returns an instance with all attributes already set"""
+        if cls.__name__ == 'Rectangle':
+            dummy = cls(1, 1)
+        if cls.__name__ == 'Square':
+            dummy = cls(1)
+        dummy.update(**dictionary)
+        return dummy
+
+     @classmethod
+    def load_from_file(cls):
+        """that returns a list of instances"""
+        name = cls.__name__ + '.json'
+        emptylist = []
+        listt = []
+        try:
+            with open(name, mode='r', encoding='UTF8') as files:
+                aux = files.read()
+                emptylist = cls.from_json_string(aux)
+                """List of dicts"""
+                for elem in emptylist:
+                    auxone = cls.create(**elem)
+                    listt.append(auxone:x)
+                return listt
+        except FileNotFoundError:
+            return emptylist
