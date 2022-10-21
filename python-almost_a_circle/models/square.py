@@ -13,7 +13,8 @@ class Square(Rectangle):
 
     def __str__(self):
         """The overloading __str__ method should return"""
-        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
+        return ("[Square] ({}) {}/{} - {}".format(
+            self.id, self.x, self.y, self.width))
 
     @property
     def size(self):
@@ -23,8 +24,8 @@ class Square(Rectangle):
     @size.setter
     def size(self, value):
         """Returns the size of the object"""
-        self.width = value
-        self.height = value
+        super().__setattr__('width', value)
+        super().__setattr__('height', value)
 
     def update(self, *args, **kwargs):
         """Update the class square by adding the public method"""
