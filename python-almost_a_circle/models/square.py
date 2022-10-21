@@ -26,12 +26,22 @@ class Square(Rectangle):
         self.width = value
         self.height = value
 
-    def update(self, *args, **keyargs):
+    def update(self, *args, **kwargs):
         """Update the class square by adding the public method"""
         lis = ['id', 'size', 'x', 'y']
         if args:
             for i in range(len(args)):
                 setattr(self, lis[i], args[i])
         else:
-            for key, value in keyargs.items():
+            for key, value in kwargs.items():
                 setattr(self, key, value)
+
+    def to_dictionary(self):
+        """Update the class Rectangle by adding the public method"""
+
+        sq_dict = {"id": self.id,
+                    "size": self.size,
+                    "x": self.x,
+                    "y": self.y}
+
+        return sq_dict
