@@ -38,10 +38,4 @@ class Square(Rectangle):
 
     def to_dictionary(self):
         """Update the class Rectangle by adding the public method"""
-
-        sq_dict = {"id": self.id,
-                    "size": self.size,
-                    "x": self.x,
-                    "y": self.y}
-
-        return sq_dict
+        return {'id': self.id, 'size': self.size, 'x': self.x, 'y': self.y}
