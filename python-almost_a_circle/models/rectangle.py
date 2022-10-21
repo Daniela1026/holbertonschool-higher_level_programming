@@ -118,4 +118,4 @@ class Rectangle(Base):
             if 'x' in keyargs:
                 self.__x = keyargs['x']
             if 'y' in keyargs:
-                self.__y = keyargs['y']
+                elf.__y = keyargs['y']
