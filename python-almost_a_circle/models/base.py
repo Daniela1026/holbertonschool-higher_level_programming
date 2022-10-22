@@ -15,12 +15,13 @@ class Base:
 
         if id is None:
             Base.__nb_objects += 1
-            self.id = self.__nb_objects
+            self.id = self.__nb_object
 
             @staticmethod
-            def to_json_string(list_dictionaries):
-                """JSON is one of the standard formats"""
-                if list_dictionaries is None or list_dictionaries == "":
-            list_dictionaries = "[]"
-            return list_dictionaries
+    def to_json_string(list_dictionaries):
+        """JSON is one of the standard formats"""
+        if list_dictionaries is None or len(list_dictionaries) == 0:
+            return "[]"
+
         return json.dumps(list_dictionaries)
+
