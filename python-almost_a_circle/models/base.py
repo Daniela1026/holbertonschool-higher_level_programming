@@ -23,3 +23,51 @@ class Base:
             return "[]"
         else:
             return json.dumps(list_dictionaries)
+
+        @classmethod
+    def save_to_file(cls, list_objs):
+        """Method to write the string rep in a file"""
+        name = cls.__name__ + '.json'
+        emptylist = []
+        if list_objs is not None:
+            for elem in list_objs:
+                aux = cls.to_dictionary(elem)
+                emptylist.append(aux)
+        with open(name, mode='w', encoding="UTF8") as xfile:
+            xfile.write(cls.to_json_string(emptylist))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """Method to return the list of JSON string rep"""
+        emptylist = []
+        if json_string is None or not json_string:
+            return emptylist
+        else:
+            aux = json.loads(json_string)
+            return aux
+
+    @classmethod
+    def create(cls, **dictionary):
+        if cls.__name__ == 'Rectangle':
+            dummy = cls(1, 1)
+        if cls.__name__ == 'Square':
+            dummy = cls(1)
+        dummy.update(**dictionary)
+        return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        name = cls.__name__ + '.json'
+        emptylist = []
+        list3 = []
+        try:
+            with open(name, mode='r', encoding='UTF8') as xfile:
+                aux = xfile.read()
+                emptylist = cls.from_json_string(aux)
+                """List of dicts"""
+                for elem in emptylist:
+                    aux2 = cls.create(**elem)
+                    list3.append(aux2)
+                return list3
+        except FileNotFoundError:
+            return emptylist
