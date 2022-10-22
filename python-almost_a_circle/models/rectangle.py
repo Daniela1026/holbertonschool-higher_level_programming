@@ -93,29 +93,28 @@ class Rectangle(Base):
         return ("[Rectangle] ({}) {}/{} - {}/{}".format(
             self.id, self.__x, self.__y, self.__width, self.__height))
 
-    def update(self, *args, **keyargs):
-        """ Update rectangle by adding the public method"""
+    def update(self, *args, **kwargs):
+        "Rectangle Update"
+        for i, j in enumerate(args):
+            if i == 0:
+                self.id = j
+            elif i == 1:
+                self.width = j
+            elif i == 2:
+                self.height = j
+            elif i == 3:
+                self.x = j
+            elif i == 4:
+                self.y = j
 
-        if args:
-            for i in range(len(args)):
-                if i == 0:
-                    self.id = args[0]
-                if i == 1:
-                    self.__width = args[1]
-                if i == 2:
-                    self.__height = args[2]
-                if i == 3:
-                    self.__x = args[3]
-                if i == 4:
-                    self.__y = args[4]
-        else:
-            if 'id' in keyargs:
-                self.id = keyargs['id']
-            if 'width' in keyargs:
-                self.__width = keyargs['width']
-            if 'height' in keyargs:
-                self.__height = keyargs['height']
-            if 'x' in keyargs:
-                self.__x = keyargs['x']
-            if 'y' in keyargs:
-                elf.__y = keyargs['y']
+        if args is None or len(args) == 0:
+            if 'id' in kwargs:
+                self.id = kwargs['id']
+            if 'width' in kwargs:
+                self.__width = kwargs['width']
+            if 'height' in kwargs:
+                self.__height = kwargs['height']
+            if 'x' in kwargs:
+                self.__x = kwargs['x']
+            if 'y' in kwargs:
+                self.__y = kwargs['y']
