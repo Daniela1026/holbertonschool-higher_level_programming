@@ -5,23 +5,21 @@ import json
 
 
 class Base:
-    """ Write the first class Base"""
+    """Class Base
+    """
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """class constructor"""
         if id is not None:
             self.id = id
-
-        if id is None:
+        else:
             Base.__nb_objects += 1
-            self.id = self.__nb_objects
+            self.id = Base.__nb_objects
 
-            @staticmethod
+    @staticmethod
     def to_json_string(list_dictionaries):
-        """JSON is one of the standard formats"""
-        if list_dictionaries is None or len(list_dictionaries) == 0:
+        """Method to use Json"""
+        if list_dictionaries is None or not list_dictionaries:
             return "[]"
-
-        return json.dumps(list_dictionaries)
-
+        else:
+            return json.dumps(list_dictionaries)
