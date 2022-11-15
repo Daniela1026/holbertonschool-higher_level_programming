@@ -1,3 +1,4 @@
+-- from hbtn_0d_tvshows same as 11
 SELECT tv_shows.title, tv_show_genres.genre_id
 FROM tv_shows
 LEFT JOIN tv_show_genres
