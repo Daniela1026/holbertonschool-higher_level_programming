@@ -24,7 +24,8 @@ def main():
         print(rec)
 
         cursor.close()
-        db.close()
+        connection.close()
+
 
 if __name__ == '__main__':
     main()
