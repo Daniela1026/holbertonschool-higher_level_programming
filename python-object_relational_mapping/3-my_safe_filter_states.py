@@ -17,11 +17,10 @@ def main():
         db=sys.argv[3]
     )
     cursor = connection.cursor()
-    cursor.execute("SELECT * FROM states WHERE name LIKE %s", (argv[4], ))
+    cursor.execute("SELECT * FROM states WHERE name=%s", (argv[4], ))
     records = cursor.fetchall()
     for rec in records:
-        if rec[1] == argv[4]:
-            print(rec)
+        print(rec)
 
-            if __name__ == '__main__':
-                main()
+        if __name__ == '__main__':
+            main()
