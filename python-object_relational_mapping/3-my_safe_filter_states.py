@@ -3,7 +3,7 @@
 matches the argument"""
 
 
-import sys
+import sys import argv
 import MySQLdb
 
 
@@ -17,15 +17,11 @@ def main():
         db=sys.argv[3]
     )
     cursor = connection.cursor()
-    cursor.execute("SELECT * FROM states WHERE BINARY name='{:s}'\
-                    ORDER BY id ASC".format(sys.argv[4]))
+    cursor.execute("SELECT * FROM states WHERE name LIKE %s", (argv[4], ))
     records = cursor.fetchall()
     for rec in records:
-        print(rec)
+        if rec[1] == argv[4]:
+            print(rec)
 
-        cursor.close()
-        connection.close()
-
-
-if __name__ == '__main__':
-    main()
+            if __name__ == '__main__':
+                main()
