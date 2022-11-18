@@ -17,8 +17,8 @@ def main():
         db=sys.argv[3]
     )
     cursor = connection.cursor()
-    cursor.execute("SELECT * FROM states WHERE name=%s", (
-        sys.argv[4], ))
+    cursor.execute("SELECT * FROM states WHERE BINARY name='{:s}'\
+                    ORDER BY id ASC".format(sys.argv[4]))
     records = cursor.fetchall()
     for rec in records:
         print(rec)
