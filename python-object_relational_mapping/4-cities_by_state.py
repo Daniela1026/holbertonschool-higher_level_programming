@@ -18,15 +18,10 @@ def main():
     )
     cursor = connection.cursor()
     cursor.execute("SELECT cities.id, cities.name, states.name \
-                FROM states JOIN cities ON state_id=states.id \
-                ORDER BY cities.id")
+    FROM cities JOIN states ON cities.state_id = states.id;")
     records = cursor.fetchall()
     for rec in records:
         print(rec)
 
-        cursor.close()
-        connection.close()
-
-
-if __name__ == '__main__':
-    main()
+        if __name__ == '__main__':
+            main()
