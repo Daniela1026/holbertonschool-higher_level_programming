@@ -7,5 +7,5 @@ const url = process.argv[2];
 const FileName = process.argv[3];
 
 request
-    .get(url)
-    .pipe(fs.createWriteStream(FileName));
+  .get(url)
+  .pipe(fs.createWriteStream(FileName));
