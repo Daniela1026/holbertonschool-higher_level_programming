@@ -3,20 +3,20 @@
 const request = require('request');
 const url = process.argv[2];
 request.get(url, function (err, response, body) {
-    if (err) {
-        console.log(err);
-    } else {
-        const task = JSON.parse(body);
-        const completed = {};
-        for (const x of task) {
-            if (x.completed === true) {
-                if (x.userId in completed) {
-                    completed[x.userId]++;
-                } else {
-                    completed[x.userId] = 1;
-                }
-            }
+  if (err) {
+    console.log(err);
+  } else {
+    const task = JSON.parse(body);
+    const completed = {};
+    for (const x of task) {
+      if (x.completed === true) {
+        if (x.userId in completed) {
+          completed[x.userId]++;
+        } else {
+          completed[x.userId] = 1;
         }
-        console.log(completed);
+      }
     }
+    console.log(completed);
+  }
 });
